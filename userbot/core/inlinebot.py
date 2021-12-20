@@ -30,7 +30,7 @@ from .logger import logging
 LOGS = logging.getLogger(__name__)
 
 BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\<buttonurl:(?:/{0,2})(.+?)(:same)?\>)")
-CATLOGO = "https://telegra.ph/file/493268c1f5ebedc967eba.jpg"
+CATLOGO = "https://telegra.ph/file/6eaf35833f94d408c41e1.jpg"
 tr = Config.COMMAND_HAND_LER
 
 
@@ -53,25 +53,25 @@ def ibuild_keyboard(buttons):
 
 
 def main_menu():
-    text = f"𝗖𝗮𝘁𝗨𝘀𝗲𝗿𝗯𝗼𝘁 𝗛𝗲𝗹𝗽𝗲𝗿\
+    text = f"𝗦𝗣 𝗦𝗲𝗹𝗳 𝗕𝗼𝗧 𝗛𝗲𝗹𝗽𝗲𝗿\
         \n𝗣𝗿𝗼𝘃𝗶𝗱𝗲𝗱 𝗯𝘆 {mention}"
     buttons = [
-        (Button.inline("ℹ️ Info", data="check"),),
+        (Button.inline("∴️ ɪɴғᴏ", data="check"),),
         (
-            Button.inline(f"👮‍♂️ Admin ({len(GRP_INFO['admin'])})", data="admin_menu"),
-            Button.inline(f"🤖 Bot ({len(GRP_INFO['bot'])})", data="bot_menu"),
+            Button.inline(f"‍♰ Aᴅᴍɪɴ ♰ ({len(GRP_INFO['admin'])})", data="admin_menu"),
+            Button.inline(f"♰ Bᴏᴛ ♰ ({len(GRP_INFO['bot'])})", data="bot_menu"),
         ),
         (
-            Button.inline(f"🎨 Fun ({len(GRP_INFO['fun'])})", data="fun_menu"),
-            Button.inline(f"🧩 Misc ({len(GRP_INFO['misc'])})", data="misc_menu"),
+            Button.inline(f"♰ Fᴜɴ ♰ ({len(GRP_INFO['fun'])})", data="fun_menu"),
+            Button.inline(f"♰ Mɪsᴄ ♰ ({len(GRP_INFO['misc'])})", data="misc_menu"),
         ),
         (
-            Button.inline(f"🧰 Tools ({len(GRP_INFO['tools'])})", data="tools_menu"),
-            Button.inline(f"🗂 Utils ({len(GRP_INFO['utils'])})", data="utils_menu"),
+            Button.inline(f"♰ Tᴏᴏʟs ♰ ({len(GRP_INFO['tools'])})", data="tools_menu"),
+            Button.inline(f"♰ Uᴛɪʟs ♰ ({len(GRP_INFO['utils'])})", data="utils_menu"),
         ),
         (
-            Button.inline(f"➕ Extra ({len(GRP_INFO['extra'])})", data="extra_menu"),
-            Button.inline("🔒 Close Menu", data="close"),
+            Button.inline(f"♰ Exᴛʀᴀ ♰ ({len(GRP_INFO['extra'])})", data="extra_menu"),
+            Button.inline("♰ Cʟᴏsᴇ Mᴇɴᴜ ♰", data="close"),
         ),
     ]
 
@@ -163,13 +163,13 @@ def paginate_help(
                 modulo_page * number_of_rows : number_of_rows * (modulo_page + 1)
             ] + [
                 (
-                    Button.inline("⌫", data=f"{prefix}_prev({modulo_page})_plugin"),
-                    Button.inline("⚙️ Main Menu", data="mainmenu"),
-                    Button.inline("⌦", data=f"{prefix}_next({modulo_page})_plugin"),
+                    Button.inline("↜", data=f"{prefix}_prev({modulo_page})_plugin"),
+                    Button.inline("✛Mᴀɪɴ Mᴇɴᴜ✛", data="mainmenu"),
+                    Button.inline("↝", data=f"{prefix}_next({modulo_page})_plugin"),
                 )
             ]
         else:
-            pairs = pairs + [(Button.inline("⚙️ Main Menu", data="mainmenu"),)]
+            pairs = pairs + [(Button.inline("✛Mᴀɪɴ Mᴇɴᴜ✛", data="mainmenu"),)]
     elif len(pairs) > number_of_rows:
         if category_pgno < 0:
             category_pgno = len(pairs) + category_pgno
@@ -178,15 +178,15 @@ def paginate_help(
         ] + [
             (
                 Button.inline(
-                    "⌫",
+                    "↜",
                     data=f"{prefix}_prev({modulo_page})_command_{category_plugins}_{category_pgno}",
                 ),
                 Button.inline(
-                    "⬅️ Back ",
+                    "↼Bᴀᴄᴋ ",
                     data=f"back_plugin_{category_plugins}_{category_pgno}",
                 ),
                 Button.inline(
-                    "⌦",
+                    "↝",
                     data=f"{prefix}_next({modulo_page})_command_{category_plugins}_{category_pgno}",
                 ),
             )
@@ -197,7 +197,7 @@ def paginate_help(
         pairs = pairs + [
             (
                 Button.inline(
-                    "⬅️ Back ",
+                    "↼Bᴀᴄᴋ ",
                     data=f"back_plugin_{category_plugins}_{category_pgno}",
                 ),
             )
@@ -420,8 +420,8 @@ async def inline_handler(event):  # sourcery no-metrics
         elif string == "help":
             _result = main_menu()
             result = builder.article(
-                title="© CatUserbot Help",
-                description="Help menu for CatUserbot",
+                title="© 𝗦𝗣 𝗦𝗲𝗹𝗳𝗕𝗼𝗧 Help",
+                description="Help menu for 𝗦𝗣 𝗦𝗲𝗹𝗳𝗕𝗼𝗧",
                 text=_result[0],
                 buttons=_result[1],
                 link_preview=False,
@@ -569,12 +569,12 @@ async def inline_handler(event):  # sourcery no-metrics
             url=CATLOGO, size=0, mime_type="image/jpeg", attributes=[]
         )
         text, msg_entities = await event.client._parse_message_text(
-            "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝗖𝗮𝘁𝗨𝘀𝗲𝗿𝗯𝗼𝘁.", "md"
+            "𝗗𝗲𝗽𝗹𝗼𝘆 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝗦𝗣 𝗦𝗲𝗹𝗳𝗕𝗼𝗧.", "md"
         )
         result = types.InputBotInlineResult(
             id=str(uuid4()),
             type="photo",
-            title="𝘾𝙖𝙩𝙐𝙨𝙚𝙧𝙗𝙤𝙩",
+            title="𝗦𝗣 𝗦𝗲𝗹𝗳𝗕𝗼𝗧",
             description="Deploy yourself",
             url="https://github.com/sandy1709/catuserbot",
             thumb=photo,
@@ -730,10 +730,10 @@ async def on_plug_in_callback_query_handler(event):
     buttons = [
         (
             Button.inline(
-                "⬅️ Back ",
+                "↼Bᴀᴄᴋ ",
                 data=f"back_command_{category}_{pgno}_{category_plugins}_{category_pgno}",
             ),
-            Button.inline("⚙️ Main Menu", data="mainmenu"),
+            Button.inline("✛Mᴀɪɴ Mᴇɴᴜ✛", data="mainmenu"),
         )
     ]
     text = f"**Command :** `{tr}{cmd}`\
